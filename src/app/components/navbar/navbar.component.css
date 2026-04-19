@@ -1,0 +1,17 @@
+.navbar {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  background: #2563eb;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 15px;
+  background: rgba(255, 255, 255, .15);
+  border-radius: 8px;
+}

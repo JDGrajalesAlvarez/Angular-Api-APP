@@ -1,0 +1,22 @@
+<div class="colormorado">
+    <h1>Control Inventario</h1>
+    <table>
+        <tr>
+            <th>Producto</th>
+            <th>Stock</th>
+            <th>Estado</th>
+        </tr>
+        <tr *ngFor="let item of inventario">
+            <td>{{item.nombre}}</td>
+            <td>{{item.stock}}</td>
+            <td>
+                <span *ngIf="item.stock >5">
+                    Disponible
+                </span>
+                <span *ngIf="item.stock <=5">
+                    Bajo Stock
+                </span>
+            </td>
+        </tr>
+    </table>
+</div>
