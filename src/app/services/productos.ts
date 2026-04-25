@@ -7,10 +7,33 @@ import { Observable } from 'rxjs';
 })
 
 export class ProductosService {
-  private apiUrl = 'https://fakestoreapi.com/products';
+
+  private apiUrl = 'http://localhost/inventario-api/productos.php';
+  private inventarioUrl = 'http://localhost/inventario-api/inventario.php';
 
   constructor(private http: HttpClient) { }
-  obtenerProductos(): Observable<any> {
-    return this.http.get(this.apiUrl);
+
+  obtenerProductos(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl);
+  }
+
+  obtenerInventario(): Observable<any[]> {
+    return this.http.get<any[]>(this.inventarioUrl);
+  }
+
+  crearProducto(producto: any): Observable<any> {
+    return this.http.post(this.apiUrl, producto);
+  }
+
+  obtenerMovimientos() {
+    return this.http.get<any[]>('http://localhost/inventario-api/movimientos.php');
+  }
+
+  crearMovimiento(data: any) {
+    return this.http.post('http://localhost/inventario-api/movimientos.php', data);
+  }
+
+  eliminarProducto(id: number) {
+    return this.http.delete(`${this.apiUrl}?id=${id}`);
   }
 }

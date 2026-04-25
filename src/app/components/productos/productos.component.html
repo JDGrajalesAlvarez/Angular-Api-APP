@@ -2,16 +2,24 @@
   <h1 class="titulo">
     Productos Disponibles
   </h1>
+
   <div class="contenedor">
     <div class="card" *ngFor="let producto of productos">
-      <img [src]="producto.image">
-      <h3>{{producto.title}}</h3>
+      <!-- Imagen opcional -->
+      <img src="https://via.placeholder.com/150">
+      <h3>{{producto.nombre}}</h3>
       <p class="precio">
-        $ {{producto.price}}
+        $ {{producto.precio}}
       </p>
       <button>
         Ver Producto
       </button>
+      <button (click)="eliminarProducto(producto.id)">
+        eliminar
+      </button>
     </div>
   </div>
+  <button (click)="crearProducto()">
+    Crear Producto
+  </button>
 </div>
